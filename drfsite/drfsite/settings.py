@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'women.apps.ElectricityConfig'
+    'electricity.apps.ElectricityConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
