@@ -4,5 +4,6 @@ from electricity.views import InstallationAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-        path('api/v1/installationlust/', InstallationAPIView.as_view()),
+    path('api/v1/installationlist/', InstallationAPIView.as_view()),
+    path('api/v1/installationlist/<int:pk>/', InstallationAPIView.as_view()),
 ]
