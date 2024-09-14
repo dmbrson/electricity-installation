@@ -1,18 +1,27 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import *
 from .serializers import InstallationSerializer
 
-
 class InstallationAPIList(generics.ListCreateAPIView):
     queryset = Installation.objects.all()
     serializer_class = InstallationSerializer
 
-class InstallationAPIUpdate(generics.UpdateAPIView):
+class InstallationAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Installation.objects.all()
     serializer_class = InstallationSerializer
+
+class InstallationAPIDestroy(generics.RetrieveDestroyAPIView):
+    queryset = Installation.objects.all()
+    serializer_class = InstallationSerializer
+
+# class InstallationViewSet(viewsets.ModelViewSet):
+#     queryset = Installation.objects.all()
+#     serializer_class = InstallationSerializer
+
+
 # class InstallationAPIView(APIView):
 #     def get(self, request):
 #         w = Installation.objects.all()
