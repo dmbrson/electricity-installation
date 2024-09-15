@@ -6,9 +6,9 @@ from electricity.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/installation', InstallationAPIList.as_view()),
-    path('api/v1/installationlist/', InstallationAPIUpdate.as_view()),
-    path('api/v1/installationlist/<int:pk>/', InstallationAPIDestroy.as_view()),
+    path('api/v1/installation/', InstallationAPIList.as_view()),
+    path('api/v1/installation/<int:pk>/', InstallationAPIUpdate.as_view()),
+    path('api/v1/installationdelete/<int:pk>/', InstallationAPIDestroy.as_view()),
 ]
 
 

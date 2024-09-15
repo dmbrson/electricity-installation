@@ -1,21 +1,26 @@
 from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, DjangoModelPermissionsOrAnonReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import *
+from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 from .serializers import InstallationSerializer
 
 class InstallationAPIList(generics.ListCreateAPIView):
     queryset = Installation.objects.all()
     serializer_class = InstallationSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
 class InstallationAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Installation.objects.all()
     serializer_class = InstallationSerializer
+    permission_classes = (IsOwnerOrReadOnly, )
 
 class InstallationAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Installation.objects.all()
     serializer_class = InstallationSerializer
+    permission_classes = (IsAdminOrReadOnly, )
 
 # class InstallationViewSet(viewsets.ModelViewSet):
 #     queryset = Installation.objects.all()
